@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity()
         // active_main.xmlを表示
         setContentView(R.layout.activity_main)
 
+
+
     }
 
 }
