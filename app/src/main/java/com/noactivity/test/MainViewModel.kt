@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 class MainViewModel : ViewModel()
 {
 
-    var counter: MutableLiveData<Int> = MutableLiveData()
+    var counter: MutableLiveData<Int> = MutableLiveData(11)
 
     /**
      * Button.Tappedイベント

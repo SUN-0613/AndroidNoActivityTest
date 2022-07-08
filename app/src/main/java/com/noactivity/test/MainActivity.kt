@@ -12,11 +12,6 @@ class MainActivity : AppCompatActivity()
 {
 
     /**
-     * activity_main.xmlのViewModel
-     */
-    private val _mainViewModel: MainViewModel by viewModels()
-
-    /**
      * プログラム起動
      */
     override fun onCreate(savedInstanceState: Bundle?)
@@ -24,13 +19,9 @@ class MainActivity : AppCompatActivity()
 
         super.onCreate(savedInstanceState)
 
-        // view.DataContext取得
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val view = R.layout.activity_main
 
-        // xmlの<data><variable>で指定した名称を使用
-        binding.lifecycleOwner = this   // xmlでbindingを記述するための設定
-        binding.viewmodel = _mainViewModel
+        setContentView(view)
 
     }
 
