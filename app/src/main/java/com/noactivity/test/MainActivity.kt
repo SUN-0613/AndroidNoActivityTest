@@ -1,17 +1,20 @@
 package com.noactivity.test
 
-import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.Observer
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+
+// Binding
+import androidx.databinding.DataBindingUtil
 import com.noactivity.test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity()
 {
 
-    private val _viewmodel: MainViewModel by viewModels()
+    /**
+     * activity_main.xmlのViewModel
+     */
+    private val _mainViewModel: MainViewModel by viewModels()
 
     /**
      * プログラム起動
@@ -21,16 +24,12 @@ class MainActivity : AppCompatActivity()
 
         super.onCreate(savedInstanceState)
 
-        // active_main.xmlを表示
-        setContentView(R.layout.activity_main)
-
-        // DataBinding準備
-        var binding: ActivityMainBinding =
+        // view.DataContext取得
+        val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        // ViewModel紐づけ
-        binding.viewmodel = _viewmodel
-
+        // xmlの<data><variable>で指定した名称を使用
+        binding.viewmodel = _mainViewModel
 
     }
 

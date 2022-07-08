@@ -8,12 +8,4 @@ import androidx.lifecycle.ViewModel
 class MainViewModel : ViewModel()
 {
 
-    val MessageText: MutableLiveData<String> by lazy { MutableLiveData<String>() }
-
-    fun Tapped()
-    {
-        MessageText.value = "Hello world!"
-    }
-
-
 }

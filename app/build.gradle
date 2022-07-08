@@ -54,8 +54,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Binding
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    def viewmodel = "2.4.1"
+    def activity = "1.4.0"
+    def fragment = "1.4.1"
+
+    kapt "androidx.lifecycle:lifecycle-compiler:$viewmodel"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodel"
+    implementation "androidx.activity:activity-ktx:$activity"
+    implementation "androidx.fragment:fragment-ktx:$fragment"
 
 }
