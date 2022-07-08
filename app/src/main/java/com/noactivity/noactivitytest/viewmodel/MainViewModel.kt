@@ -7,4 +7,6 @@ class MainViewModel: ViewModel() {
 
     var counter = MutableLiveData<Int>(10)
 
+    var message = MutableLiveData<String>("Hello world!!")
+
 }

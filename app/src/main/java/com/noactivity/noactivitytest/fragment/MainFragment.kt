@@ -14,22 +14,18 @@ class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View?
-    {
-
-        //return super.onCreateView(inflater, container, savedInstanceState)
-
-        val binding = ActivityMainBinding.inflate(inflater, container, false)
-
-        //binding.viewmodel = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-
-        return binding.root
-
-    }
+    ): View =
+        ActivityMainBinding.inflate(inflater, container, false).also {
+            it.viewmodel = viewModel
+            it.lifecycleOwner = viewLifecycleOwner
+        }.root
 
 }
