@@ -5,6 +5,8 @@
     >
     <data>
         <variable name="viewmodel" type="com.noactivity.test.MainViewModel" />
+        <variable name="plus" android:value="plus" type="String" />
+        <variable name="minus" android:value="minus" type="String" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,13 +18,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-            <!--
             <TextView
-                android:id="@+id/textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150pt"
+                android:layout_height="100dp"
+                android:text="@{viewmodel.counter}"
                 />
-                -->
+            <Button
+                android:text="+"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="@{() -> viewmodel.onButtonTapped(plus)}"
+                />
+            <Button
+                android:text="-"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="@{() -> viewmodel.onButtonTapped(minus)}"
+                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

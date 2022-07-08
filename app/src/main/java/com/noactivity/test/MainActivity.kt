@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity()
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         // xmlの<data><variable>で指定した名称を使用
+        binding.lifecycleOwner = this   // xmlでbindingを記述するための設定
         binding.viewmodel = _mainViewModel
 
     }
