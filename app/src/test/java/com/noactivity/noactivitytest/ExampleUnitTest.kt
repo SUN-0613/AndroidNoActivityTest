@@ -1,4 +1,4 @@
-package com.noactivity.test
+package com.noactivity.noactivitytest
 
 import org.junit.Test
 
