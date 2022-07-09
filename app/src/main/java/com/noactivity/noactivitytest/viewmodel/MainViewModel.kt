@@ -50,6 +50,16 @@ class MainViewModel: ViewModel() {
 
         }
 
+        viewModelScope.launch(Dispatchers.Default)
+        {
+
+
+            delay(2000)
+
+            counter.postValue(500)
+
+        }
+
     }
 
 }
