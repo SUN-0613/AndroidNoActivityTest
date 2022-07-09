@@ -9,4 +9,25 @@ class MainViewModel: ViewModel() {
 
     var message = MutableLiveData<String>("Hello world!!")
 
+    /**
+     * Button.Tappedイベント
+     */
+    fun OnButtonTapped(tag: TagEnum)
+    {
+
+        var value: Int = counter.value!!
+
+        when (tag)
+        {
+
+            TagEnum.Plus -> { value += 1 }
+            TagEnum.Minus -> { value -= 1 }
+            else -> { value = 0 }
+
+        }
+
+        counter.value = value
+
+    }
+
 }
