@@ -54,6 +54,12 @@
                     android:text="-"
                     android:onClick="@{() -> viewmodel.OnButtonTapped(tag.Minus)}"
                     />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="コルーチン"
+                    android:onClick="@{() -> viewmodel.OnCoroutine()}"
+                    />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"

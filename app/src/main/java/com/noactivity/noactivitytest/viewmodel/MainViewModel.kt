@@ -2,6 +2,10 @@ package com.noactivity.noactivitytest.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
 
@@ -27,6 +31,24 @@ class MainViewModel: ViewModel() {
         }
 
         counter.value = value
+
+    }
+
+    /**
+     * 並列処理実行イベント
+     */
+    fun OnCoroutine()
+    {
+
+        // 並列処理
+        viewModelScope.launch(Dispatchers.Default)
+        {
+
+            delay(5000)
+
+            counter.postValue(1000)
+
+        }
 
     }
 
