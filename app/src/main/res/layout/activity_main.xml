@@ -29,22 +29,15 @@
                 android:layout_height="wrap_content"
                 android:text="Hello world"
                 />
-            <fragment
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="com.noactivity.noactivitytest.fragment.MainFragment"
-                >
-
-            </fragment>
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.message}"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hello world2"
                 />
-            <!--
-            android:text="@{viewmodel.counter}"
-            android:text="@{viewmodel.message}"
-            -->
         </LinearLayout>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</layout>
+    </androidx.appcompat.widget.LinearLayoutCompat></layout>
