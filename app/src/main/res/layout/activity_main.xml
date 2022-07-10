@@ -60,6 +60,12 @@
                     android:text="コルーチン"
                     android:onClick="@{() -> viewmodel.OnCoroutine()}"
                     />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="円"
+                    android:onClick="@{() -> viewmodel.OnDrawCircle()}"
+                    />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -69,7 +75,10 @@
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:src="@drawable/my_ellipse"
+                android:scaleType="center"
+                android:background="@color/white"
+                android:src="@{viewmodel.circle}"
                 />
+            <!-- android:src="@drawable/my_ellipse" -->
         </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat></layout>

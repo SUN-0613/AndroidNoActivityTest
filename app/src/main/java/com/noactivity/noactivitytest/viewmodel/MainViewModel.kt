@@ -1,12 +1,14 @@
 package com.noactivity.noactivitytest.viewmodel
 
 import MyApp.MyApplication
+import android.graphics.drawable.StateListDrawable
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.noactivity.noactivitytest.viewmodel.HidConnect.UsbHid
+import com.noactivity.noactivitytest.viewmodel.shape.Ellipse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,6 +25,11 @@ class MainViewModel: ViewModel() {
      * UI表示メッセージプロパティ
      */
     var message = MutableLiveData<String>("Hello world!!")
+
+    /**
+     * 円イメージ
+     */
+    var circle = MutableLiveData<StateListDrawable>()
 
     /**
      * USB HIDデバイス
@@ -75,6 +82,24 @@ class MainViewModel: ViewModel() {
             counter.postValue(500)
 
         }
+
+    }
+
+    fun OnDrawCircle()
+    {
+
+        viewModelScope.launch(Dispatchers.Default)
+        {
+
+            circle.postValue(Ellipse().create(135f, 2))
+
+            delay(3000)
+
+            circle.postValue(Ellipse().create(80f, 5))
+
+        }
+
+
 
     }
 
