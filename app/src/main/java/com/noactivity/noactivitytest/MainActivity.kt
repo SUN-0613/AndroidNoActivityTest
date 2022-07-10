@@ -1,5 +1,7 @@
 package com.noactivity.noactivitytest
 
+import MyApp.MyApplication
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +19,11 @@ class MainActivity : AppCompatActivity()
 
     private val viewModel: MainViewModel by viewModels()
 
+    init
+    {
+        Instance = this
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -27,6 +34,16 @@ class MainActivity : AppCompatActivity()
         binding.viewmodel = viewModel
 
         //setContentView(R.layout.activity_main)
+        runOnUiThread {  }
+    }
+
+    companion object
+    {
+
+        /**
+         * インスタンス
+         */
+        public var Instance: MainActivity? = null
 
     }
 
