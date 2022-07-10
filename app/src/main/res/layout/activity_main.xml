@@ -66,5 +66,10 @@
                 android:layout_height="wrap_content"
                 android:text="Hello world2"
                 />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/my_ellipse"
+                />
         </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat></layout>

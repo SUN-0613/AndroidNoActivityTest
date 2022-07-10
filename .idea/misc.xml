@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/_Job/dev/Private/AndroidProject/NoActivityTest/app/src/main/res/drawable/my_ellipse.xml" value="0.1" />
         <entry key="..\:/_Job/dev/Private/AndroidProject/NoActivityTest/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/_Job/dev/Private/AndroidProject/NoActivityTest/app/src/main/res/layout/fragment_main.xml" value="0.1" />
+        <entry key="..\:/_Job/dev/Private/AndroidProject/NoActivityTest/app/src/main/res/layout/my_shape.xml" value="0.17806484295845998" />
       </map>
     </option>
   </component>

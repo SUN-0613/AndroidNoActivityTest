@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity()
         binding.viewmodel = viewModel
 
         //setContentView(R.layout.activity_main)
-        runOnUiThread {  }
+
     }
 
     companion object
