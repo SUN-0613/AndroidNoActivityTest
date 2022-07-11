@@ -21,15 +21,17 @@ class MainViewModel: ViewModel() {
      */
     var counter = MutableLiveData<Int>(10)
 
-    /**
-     * UI表示メッセージプロパティ
-     */
-    var message = MutableLiveData<String>("Hello world!!")
+    var CenterX = MutableLiveData<Float>()
+    var CenterY = MutableLiveData<Float>()
+    var ColorA = MutableLiveData<Int>()
+    var ColorR = MutableLiveData<Int>()
+    var ColorG = MutableLiveData<Int>()
+    var ColorB = MutableLiveData<Int>()
+    var Radius = MutableLiveData<Float>()
+    var Thickness = MutableLiveData<Float>()
+    var IsDraw = MutableLiveData<Boolean>(false)
 
-    /**
-     * 円イメージ
-     */
-    var circle = MutableLiveData<StateListDrawable>()
+    var Message = MutableLiveData<String>()
 
     /**
      * USB HIDデバイス
@@ -91,15 +93,56 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch(Dispatchers.Default)
         {
 
-            circle.postValue(Ellipse().create(135f, 2))
+            Message.postValue("No.1")
+
+            IsDraw.postValue(false)
+            Radius.postValue(100f)
+            Thickness.postValue(10f)
+            CenterX.postValue(0f)
+            CenterY.postValue(0f)
+            ColorA.postValue(100)
+            ColorR.postValue(0xFF)
+            ColorG.postValue(0x00)
+            ColorB.postValue(0x00)
+            IsDraw.postValue(true)
 
             delay(3000)
 
-            circle.postValue(Ellipse().create(80f, 5))
+            Message.postValue("No.2")
+
+            IsDraw.postValue(false)
+            Radius.postValue(80f)
+            Thickness.postValue(30f)
+            CenterX.postValue(250f)
+            CenterY.postValue(300f)
+            ColorA.postValue(50)
+            ColorR.postValue(0x00)
+            ColorG.postValue(0x00)
+            ColorB.postValue(0xFF)
+            IsDraw.postValue(true)
+
+
+            delay(3000)
+
+            Message.postValue("No.3")
+
+            IsDraw.postValue(false)
+            Radius.postValue(120f)
+            Thickness.postValue(30f)
+            CenterX.postValue(400f)
+            CenterY.postValue(400f)
+            ColorA.postValue(0xFF)
+            ColorR.postValue(0x00)
+            ColorG.postValue(0xFF)
+            ColorB.postValue(0x00)
+            IsDraw.postValue(true)
+
+            delay(1000)
+            IsDraw.postValue(false)
+
+            Message.postValue("Finish")
 
         }
-
-
 
     }
 
