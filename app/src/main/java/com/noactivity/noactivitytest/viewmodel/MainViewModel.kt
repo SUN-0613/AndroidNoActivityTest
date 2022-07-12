@@ -1,17 +1,27 @@
 package com.noactivity.noactivitytest.viewmodel
 
 import MyApp.MyApplication
+import android.content.Context
 import android.graphics.drawable.StateListDrawable
+import android.hardware.input.InputManager
+import android.os.SystemClock
 import android.util.Log
+import android.view.InputDevice
+import android.view.InputEvent
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.noactivity.noactivitytest.MainActivity
 import com.noactivity.noactivitytest.viewmodel.HidConnect.UsbHid
 import com.noactivity.noactivitytest.viewmodel.shape.Ellipse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.lang.reflect.InvocationTargetException
+import java.util.concurrent.TimeUnit
 
 class MainViewModel: ViewModel() {
 
@@ -142,6 +152,85 @@ class MainViewModel: ViewModel() {
 
             Message.postValue("Finish")
 
+        }
+
+    }
+
+    fun sendTap()
+    {
+
+        viewModelScope.launch(Dispatchers.Default)
+        {
+            sendTapEvent()
+        }
+
+    }
+
+    /**
+     * Tapイベントを発行する
+     */
+    private fun sendTapEvent()
+    {
+
+        val pointX = 100f
+        val pointY = 100f
+
+        val downTime = SystemClock.uptimeMillis()
+        val eventTime = SystemClock.uptimeMillis() + 1000
+
+        Message.postValue("event1")
+
+        val event1 = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_DOWN, pointX, pointY, 0)
+        event1.source = InputDevice.SOURCE_MOUSE
+        injectInputEvent(event1)
+
+        TimeUnit.SECONDS.sleep(1)
+
+        Message.postValue("event2")
+
+        val event2 = MotionEvent.obtain(eventTime + 100, eventTime + 2000, MotionEvent.ACTION_UP, pointX, pointY, 0)
+        event2.source = InputDevice.SOURCE_MOUSE
+        injectInputEvent(event2)
+
+        Message.postValue("fin")
+
+    }
+
+    /**
+     * 入力イベント
+     */
+    private fun injectInputEvent(event: InputEvent)
+    {
+
+        try
+        {
+
+            //val inputManager = InputManager::class.java.getMethod("getInstance").invoke(null) as InputManager
+            val inputManager = MainActivity.getInputManager()
+            val injectInputEventMethod = InputManager::class.java.getMethod("injectInputEvent", InputEvent::class.java, Int::class.javaPrimitiveType)
+
+            injectInputEventMethod.invoke(inputManager, event, 2)
+
+            println("Tap OK")
+
+            Message.postValue("Tap OK")
+
+        }
+        catch (e: NoSuchMethodException)
+        {
+            e.printStackTrace()
+        }
+        catch (e: IllegalAccessException)
+        {
+            e.printStackTrace()
+        }
+        catch (e: IllegalArgumentException)
+        {
+            e.printStackTrace()
+        }
+        catch (e: InvocationTargetException)
+        {
+            e.printStackTrace()
         }
 
     }

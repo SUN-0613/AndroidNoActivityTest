@@ -2,6 +2,7 @@ package com.noactivity.noactivitytest
 
 import MyApp.MyApplication
 import android.content.Context
+import android.hardware.input.InputManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity()
          * インスタンス
          */
         public var Instance: MainActivity? = null
+
+        fun getInputManager(): InputManager
+        {
+            return Instance!!.getSystemService(Context.INPUT_SERVICE) as InputManager
+        }
 
     }
 
